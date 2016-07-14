@@ -27,3 +27,31 @@
   [1m[36mPin Exists (1.0ms)[0m  [1mSELECT  1 AS one FROM "pins" WHERE "pins"."slug" = 'ruby-monk' LIMIT 1[0m
   [1m[35mSQL (0.4ms)[0m  INSERT INTO "pins" ("title", "url", "text", "slug", "resource_type") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["title", "Ruby Monk"], ["url", "http://rubymonk.com"], ["text", "The Ruby Primer is a free interactive book that helps you learn Ruby. Discover Ruby idioms, learn \n    lessons and solve problems, all in your browser!"], ["slug", "ruby-monk"], ["resource_type", "ruby"]]
   [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2016-07-14 18:54:26 +0100
+Processing by PinsController#index as HTML
+  [1m[36mPin Load (240.5ms)[0m  [1mSELECT "pins".* FROM "pins"[0m
+  Rendered pins/index.erb within layouts/application (683.5ms)
+Completed 200 OK in 3332ms (Views: 2496.3ms | ActiveRecord: 559.4ms)
+Started GET "/pins/1" for 127.0.0.1 at 2016-07-14 18:54:37 +0100
+Processing by PinsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPin Load (0.0ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered pins/show.erb within layouts/application (108.5ms)
+Completed 500 Internal Server Error in 267ms
+Started GET "/" for 127.0.0.1 at 2016-07-14 18:55:34 +0100
+Processing by PinsController#index as HTML
+  [1m[36mPin Load (8.5ms)[0m  [1mSELECT "pins".* FROM "pins"[0m
+  Rendered pins/index.erb within layouts/application (110.0ms)
+Completed 200 OK in 831ms (Views: 684.1ms | ActiveRecord: 90.0ms)
+Started GET "/pins/1" for 127.0.0.1 at 2016-07-14 18:55:37 +0100
+Processing by PinsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPin Load (0.0ms)[0m  SELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered pins/show.erb within layouts/application (1.0ms)
+Completed 200 OK in 58ms (Views: 41.8ms | ActiveRecord: 0.0ms)
+Started GET "/pins/2" for 127.0.0.1 at 2016-07-14 18:55:41 +0100
+Processing by PinsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPin Load (1.0ms)[0m  [1mSELECT  "pins".* FROM "pins" WHERE "pins"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  Rendered pins/show.erb within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 1.0ms)
